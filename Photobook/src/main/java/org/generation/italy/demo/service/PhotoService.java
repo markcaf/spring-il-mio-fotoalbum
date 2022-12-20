@@ -5,8 +5,11 @@ import java.util.Optional;
 
 import org.generation.italy.demo.pojo.Photo;
 import org.generation.italy.demo.repo.PhotoRepo;
+import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import jakarta.transaction.Transactional;
 
 @Service
 public class PhotoService {
@@ -28,5 +31,13 @@ public class PhotoService {
 	
 	public void deletePhotoById(int id) {
 		photoRepo.deleteById(id);
+	}
+	
+	@Transactional
+	public List<Photo> findAllWCategory() {
+		List<Photo> photos = photoRepo.findAll();
+		for (Photo photo : photos)
+			Hibernate.initialize(photo.getCategories());
+		return photos;
 	}
 }
