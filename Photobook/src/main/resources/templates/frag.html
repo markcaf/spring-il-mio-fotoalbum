@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="ISO-8859-1">
+	<title>PhotoBook</title>
+</head>
+<body>
+	<header th:fragment="header()" class="mb-3">
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		  <div class="container">
+		    <a class="navbar-brand" th:href="@{/admin/photo}">PHOTOBOOK</a>
+		    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+		      <span class="navbar-toggler-icon"></span>
+		    </button>
+		    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+		      <div class="navbar-nav">
+		        <a th:href="@{/admin/photo}" class="nav-link active" aria-current="page">Photos</a>
+		        <a th:href="@{/login}" class="nav-link" href="#">Login</a>
+		        <a th:href="@{/logout}" class="nav-link" href="#">Logout</a>
+		      </div>
+		    </div>
+		  </div>
+		</nav>
+    </header>
+</body>
+</html>
