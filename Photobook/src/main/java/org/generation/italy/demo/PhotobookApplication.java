@@ -5,8 +5,12 @@ import java.util.List;
 
 import org.generation.italy.demo.pojo.Category;
 import org.generation.italy.demo.pojo.Photo;
+import org.generation.italy.demo.pojo.Role;
+import org.generation.italy.demo.pojo.User;
 import org.generation.italy.demo.service.CategoryService;
 import org.generation.italy.demo.service.PhotoService;
+import org.generation.italy.demo.service.RoleService;
+import org.generation.italy.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -20,6 +24,12 @@ public class PhotobookApplication implements CommandLineRunner {
 	
 	@Autowired
 	private CategoryService categoryService;
+	
+	@Autowired
+	private RoleService roleService;
+	
+	@Autowired
+	private UserService userService;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(PhotobookApplication.class, args);
@@ -69,6 +79,11 @@ public class PhotobookApplication implements CommandLineRunner {
 		photoService.save(p6);
 		
 		System.err.println(photoService.findAllWCategory());
+		
+		Role admin = new Role("ADMIN");
+		roleService.save(admin);
+		User admin1 = new User("admin", "{noop}admin", admin);
+		userService.save(admin1);
 	}
 	
 	
