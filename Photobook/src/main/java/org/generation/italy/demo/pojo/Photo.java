@@ -36,6 +36,7 @@ public class Photo {
 	private String description;
 	
 	@URL(message="The image path is not valid")
+	@NotEmpty(message = "The image cannot be empty")
 	@Column(name="image_url")
 	private String imageUrl;
 	
