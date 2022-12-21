@@ -27,7 +27,7 @@
 						<th>ID</th>
 						<th>Title</th>
 						<th>Description</th>
-						<th>Image URL</th>
+						<th class="text-center">Image URL</th>
 						<th>Tag</th>
 						<th>Visibility</th>
 						<th>Categories</th>
@@ -37,7 +37,7 @@
 						<td th:text="*{id}"></td>
 						<td th:text="*{title}"></td>
 						<td th:text="*{description}"></td>
-						<td><img th:src="*{imageUrl}" class="w-100"></td>
+						<td class="d-flex justify-content-center"><img th:src="*{imageUrl}" class="w-50"></td>
 						<td th:text="*{tag}"></td>
 						<td th:text="*{visible}"></td>
 						<td th:text="*{categories}"></td>
