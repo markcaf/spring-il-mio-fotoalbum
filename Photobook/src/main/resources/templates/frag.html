@@ -14,10 +14,10 @@
 		    </button>
 		    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 		      <div class="navbar-nav">
+		      	<a class="nav-link">Logged User: <span sec:authentication="principal.authorities"></a>
+		      	<a th:href="@{/logout}" class="nav-link me-2" href="#">Logout</a>
 		        <a th:href="@{/admin/photo}" class="nav-link active" aria-current="page">Photos</a>
 		        <a th:href="@{/admin/category}" class="nav-link active" aria-current="page">Categories</a>
-		        <a th:href="@{/login}" class="nav-link" href="#">Login</a>
-		        <a th:href="@{/logout}" class="nav-link" href="#">Logout</a>
 		      </div>
 		    </div>
 		  </div>
