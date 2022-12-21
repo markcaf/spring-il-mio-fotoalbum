@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+	<link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.1.3/css/bootstrap.min.css}"/>
+    <title>PhotoBook</title>
+</head>
+<body>
+	<header th:replace="~{frag :: header()}"></header>
+	
+	<div class="container">
+		<div class="row">
+			
+			<div class="col">
+				
+				<h1 class="text-center mt-5">Welcome to the Admin Dashboard</h1>
+				<p class="text-center">Use the upon navbar to navigate or the follow button</p>
+				
+				<div class="row">
+					<div class="col text-center my-3">
+						<a href="/admin/photo" class="btn btn-sm btn-warning text-center">Go to Photos List</a>
+						<a href="/admin/category" class="btn btn-sm btn-warning text-center">Go to Categories List</a>
+					</div>
+				</div>
+			</div>
+		</div>		
+	</div>
+    
+    <!-- Bootstrap Bundle with Popper -->
+	<script th:src="@{/webjars/bootstrap/5.1.3/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>
