@@ -43,7 +43,7 @@
 						<td th:text="*{categories}"></td>
 						<td>
 							<a th:href="@{/admin/photo/{id} (id=*{id})}" class="btn btn-sm btn-success mb-1">View</a>
-							<a th:href="@{/admin/photo/update/{id}(id=${photo.id})}" class="btn btn-sm btn-primary mb-1">Edit</a>
+							<a th:href="@{/admin/photo/edit/{id}(id=${photo.id})}" class="btn btn-sm btn-primary mb-1">Edit</a>
 							<a th:href="@{/admin/photo/delete/{id}(id=${photo.id})}" class="btn btn-sm btn-danger mb-1">Remove</a>
 						</td>
 					</tr>

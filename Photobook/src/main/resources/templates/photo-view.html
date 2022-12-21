@@ -28,7 +28,7 @@
 				        <p class="card-text"><b>Categories:</b><br> [[*{categories}]]</p>				        
 				        <p class="card-text"><small class="text-muted"><b>Tag:</b> #[[*{tag}]]</small></p>
 				        <div class="mt-5">
-				        	<a th:href="@{/admin/photo/update/{id}(id=${photo.id})}" class="btn btn-sm btn-primary mb-1">Edit</a>
+				        	<a th:href="@{/admin/photo/edit/{id}(id=${photo.id})}" class="btn btn-sm btn-primary mb-1">Edit</a>
 							<a th:href="@{/admin/photo/delete/{id}(id=${photo.id})}" class="btn btn-sm btn-danger mb-1">Remove</a>
 				        </div>
 				      </div>
