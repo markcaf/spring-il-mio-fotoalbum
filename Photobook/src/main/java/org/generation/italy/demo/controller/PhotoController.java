@@ -99,4 +99,12 @@ public class PhotoController {
 		photoService.save(photo);
 		return "redirect:/admin/photo";
 	}
+	
+	@GetMapping("/photo/delete/{id}")
+	public String deletePhoto(@PathVariable("id") int id) {
+
+		photoService.deletePhotoById(id);
+
+		return "redirect:/admin/photo";
+	}
 }
