@@ -35,13 +35,20 @@
                                 </div>
 
                                 <div class="card-body" v-if="photo.comments != null">
-                                    <h6>Comments:</h6>
-                                    <div class="card">
+                                    <span class="card-text">{{photo.description}}</span>
+
+                                    <h6 class="mt-3">Comments:</h6>
+                                    <div class="card mb-2">
                                         <ul class="list-group list-group-flush">
                                             <li v-for="comment in photo.comments" :key="comment.id" class="list-group-item">
                                                 {{comment.text}}
                                             </li>
                                         </ul>
+                                    </div>
+
+                                    <span class="fst-italic">write a comment:</span>
+                                    <div class="d-flex align-items-center mb-2">
+                                    <input type="text" class="form-control" @keyup.enter="postComment(photo.id)" placeholder="..." v-model="userComment">
                                     </div>
                                 </div>
                             </div>
@@ -68,6 +75,8 @@ export default {
             photos: [],
             activePhotoIndex: ACTIVE_PICTURE_INDEX,
             searchValue: '',
+            userComment: '',
+            newComment: {text: '', photo: ''},
         }
     },
 
@@ -83,16 +92,16 @@ export default {
         },
 
         getPhotoCategories(photoId){
-      axios.get(API_URL + 'category/by/photo/' + photoId)
-        .then(response => {
-          const photoCategories = response.data;
-          if (photoCategories == null) return
-          const index = this.getIndexFromPhotoId(photoId);
-          this.photos[index].categories = photoCategories;
-        })
-        .catch(error => {
-          console.log(error);
-        });
+        axios.get(API_URL + 'category/by/photo/' + photoId)
+            .then(response => {
+            const photoCategories = response.data;
+            if (photoCategories == null) return
+            const index = this.getIndexFromPhotoId(photoId);
+            this.photos[index].categories = photoCategories;
+            })
+            .catch(error => {
+            console.log(error);
+            });
         },
 
         setActivePhotoIndex(index){
@@ -126,7 +135,21 @@ export default {
             .catch(error => {
                 console.log(error);
             });
-        }
+        },
+
+        postComment(photoId){
+            this.newComment.photo = photoId;
+            this.newComment.text = this.userComment;
+            axios.post(API_URL + 'comments/add/' + photoId , this.newComment)
+                .then(response => {
+                this.getPhotoComments(photoId);
+                this.userComment = '';
+                console.log(response);
+            })
+            .catch(error => {
+            console.log(error);
+            });
+        },
     },
 
     mounted() {

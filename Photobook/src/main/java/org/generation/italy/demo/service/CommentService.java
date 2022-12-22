@@ -14,8 +14,8 @@ public class CommentService {
 	@Autowired
 	private CommentRepo commentRepo;
 
-	public void save(Comment comment) {
-		commentRepo.save(comment);
+	public Comment save(Comment comment) {
+		return commentRepo.save(comment);
 	}
 
 	public List<Comment> findAll() {
