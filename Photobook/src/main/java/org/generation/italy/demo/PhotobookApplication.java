@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.generation.italy.demo.pojo.Category;
+import org.generation.italy.demo.pojo.Comment;
 import org.generation.italy.demo.pojo.Photo;
 import org.generation.italy.demo.pojo.Role;
 import org.generation.italy.demo.pojo.User;
@@ -88,6 +89,18 @@ public class PhotobookApplication implements CommandLineRunner {
 		roleService.save(admin);
 		User admin1 = new User("admin", "{noop}admin", admin);
 		userService.save(admin1);
+		
+		Comment comment1 = new Comment("the best guitarist!", p1);
+		Comment comment2 = new Comment("really high my friend", p5);
+		Comment comment3 = new Comment("awesome", p2);
+		Comment comment4 = new Comment("true, it's cool", p3);
+		Comment comment5 = new Comment("true, it's very cool", p4);
+
+		commentService.save(comment1);
+		commentService.save(comment2);
+		commentService.save(comment3);
+		commentService.save(comment4);
+		commentService.save(comment5);
 	}
 	
 	
