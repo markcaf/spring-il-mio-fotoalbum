@@ -33,7 +33,19 @@
                                 <div v-if="photo.categories != null" class="card-body">
                                     Categories: <span class="d-inline-block me-1" v-for="category in photo.categories" :key="category.id">#{{category.name}} </span>
                                 </div>
+
+                                <div class="card-body" v-if="photo.comments != null">
+                                    <h6>Comments:</h6>
+                                    <div class="card">
+                                        <ul class="list-group list-group-flush">
+                                            <li v-for="comment in photo.comments" :key="comment.id" class="list-group-item">
+                                                {{comment.text}}
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -102,6 +114,19 @@ export default {
                 console.log(error);
             });
         },
+
+        getPhotoComments(photoId) {
+        axios.get(API_URL + 'comments/by/photos/' + photoId)
+            .then(response => {
+                const photoComments = response.data;
+                if (photoComments == null) return
+                const index = this.getIndexFromPhotoId(photoId);
+                this.photos[index].comments = photoComments;
+            })
+            .catch(error => {
+                console.log(error);
+            });
+        }
     },
 
     mounted() {
