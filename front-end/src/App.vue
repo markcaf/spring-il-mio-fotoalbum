@@ -1,17 +1,19 @@
 <template>
   <div id="app">
     <HeaderComponent />
-    <h1 class="text-center">PHOTOBOOK</h1>
+    <MainComponent />
   </div>
 </template>
 
 <script>
 import HeaderComponent from './components/partials/HeaderComponent.vue';
+import MainComponent from './components/MainComponent.vue';
 
 export default {
   name: 'App',
   components: {
     HeaderComponent,
+    MainComponent,
   }
 }
 </script>
