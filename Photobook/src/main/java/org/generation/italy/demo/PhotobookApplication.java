@@ -8,6 +8,7 @@ import org.generation.italy.demo.pojo.Photo;
 import org.generation.italy.demo.pojo.Role;
 import org.generation.italy.demo.pojo.User;
 import org.generation.italy.demo.service.CategoryService;
+import org.generation.italy.demo.service.CommentService;
 import org.generation.italy.demo.service.PhotoService;
 import org.generation.italy.demo.service.RoleService;
 import org.generation.italy.demo.service.UserService;
@@ -30,6 +31,9 @@ public class PhotobookApplication implements CommandLineRunner {
 	
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private CommentService commentService;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(PhotobookApplication.class, args);
@@ -78,7 +82,7 @@ public class PhotobookApplication implements CommandLineRunner {
 		photoService.save(p5);
 		photoService.save(p6);
 		
-		System.err.println(photoService.findAllWCategory());
+		System.err.println(photoService.findAllWCategoryAndComment());
 		
 		Role admin = new Role("ADMIN");
 		roleService.save(admin);

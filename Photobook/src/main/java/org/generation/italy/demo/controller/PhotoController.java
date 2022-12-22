@@ -33,7 +33,7 @@ public class PhotoController {
 	
 	@GetMapping("/photo")
 	public String index(Model model, @RequestParam(name = "query", required = false) String query) {
-		List<Photo> photos = query == null ? photoService.findAllWCategory() : photoService.findByNameOrTag(query);
+		List<Photo> photos = query == null ? photoService.findAllWCategoryAndComment() : photoService.findByNameOrTag(query);
 		model.addAttribute("photos", photos);
 		return "photo-index";
 	}
