@@ -27,6 +27,14 @@
 				        <p class="card-text"><b>Visibility:</b><br> [[*{visible}]]</p>
 				        <p class="card-text"><b>Categories:</b><br> [[*{categories}]]</p>				        
 				        <p class="card-text"><small class="text-muted"><b>Tag:</b> #[[*{tag}]]</small></p>
+				        
+				        <p class="card-text" th:if="${!comments.isEmpty()}">
+				        	<b>Comments:</b><br>
+				        	<ul>
+								<li th:each="comment : ${comments}" th:object="${comment}">[[*{text}]]</li>
+							 </ul>
+				        </p>
+				        
 				        <div class="mt-5">
 				        	<a th:href="@{/admin/photo/edit/{id}(id=${photo.id})}" class="btn btn-sm btn-primary mb-1">Edit</a>
 							<a th:href="@{/admin/photo/delete/{id}(id=${photo.id})}" class="btn btn-sm btn-danger mb-1">Remove</a>

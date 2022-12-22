@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.generation.italy.demo.pojo.Category;
+import org.generation.italy.demo.pojo.Comment;
 import org.generation.italy.demo.pojo.Photo;
 import org.generation.italy.demo.service.CategoryService;
 import org.generation.italy.demo.service.PhotoService;
@@ -47,9 +48,11 @@ public class PhotoController {
 
 		Photo photo = optionalPhoto.get();
 		List<Category> categories = photo.getCategories();
+		List<Comment> comments = photo.getComments();
 
 		model.addAttribute("photo", photo);
 		model.addAttribute("categories", categories);
+		model.addAttribute("comments", comments);
 
 		return "photo-view";
 	}
