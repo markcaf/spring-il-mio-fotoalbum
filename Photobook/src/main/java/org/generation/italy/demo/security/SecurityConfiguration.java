@@ -19,7 +19,7 @@ public class SecurityConfiguration {
 
 		http.csrf().disable().authorizeHttpRequests()
 				.requestMatchers("/admin", "/admin/**").hasAuthority("ADMIN")
-				.requestMatchers("/**").hasAuthority("ADMIN")
+				.requestMatchers("/**").permitAll()
 			.and().formLogin()
 			.and().logout()
 		;
