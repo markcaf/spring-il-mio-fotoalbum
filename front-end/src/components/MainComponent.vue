@@ -2,6 +2,22 @@
     <section class="mt-2">
         
         <div class="container-fluid">
+            <div class="row mb-4 justify-content-center">
+                <form class="col-8" id="search_bar">
+                    <!-- <div class="input-group">
+                        <input type="text" class="form-control me-2" v-model="searchValue" placeholder="Insert a title or a tag to search between photos, then click on the Search button" @keyup="getSearchPhotos()" aria-label="Search" aria-describedby="basic-addon1">
+                        <button class="btn btn-outline-success" id="basic-addon1" @click="getSearchPhotos()">Search</button>
+                    </div> -->
+
+                    <form class="container-fluid" id="search_bar">
+                        <div class="input-group">
+                            <span class="input-group-text" id="basic-addon1">Search</span>
+                            <input type="text" class="form-control" v-model="searchValue" @keyup="getSearchPhotos()" placeholder="Insert a title or a tag to search between photos, press enter to clear" aria-label="Search" aria-describedby="basic-addon1">
+                        </div>
+                    </form>
+                </form>
+            </div>
+
             <div class="row mb-3">
                 <div class="col-2" v-for="photo in photos"  :key="photo.id" :class="photo.visible ? '' : 'd-none'"
                 @click="setActivePhotoIndex(getIndexFromPhotoId(photo.id)), getPhotoCategories(photo.id)">
@@ -39,6 +55,7 @@ export default {
         return {
             photos: [],
             activePhotoIndex: ACTIVE_PICTURE_INDEX,
+            searchValue: '',
         }
     },
 
@@ -73,6 +90,17 @@ export default {
 
         getIndexFromPhotoId(id){
         return this.photos.findIndex(photo => photo.id === id);
+        },
+
+        getSearchPhotos(){
+        if(this.searchValue === '') return this.getPhotos();
+            axios.get(API_URL + 'photo/search/' + this.searchValue)
+                .then(response => {
+                this.photos = response.data;
+            })
+            .catch(error => {
+                console.log(error);
+            });
         },
     },
 

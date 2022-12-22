@@ -2,7 +2,7 @@
   <header>
     <nav class="navbar navbar-expand-lg bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="/">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Pinterest-logo.png" alt="Logo">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,13 +20,13 @@
                         <a class="nav-link active" href="#">Categories</a>
                     </li>
                 </ul>
+
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-primary rounded-pill text-white px-3" aria-current="page" href="http://localhost:8080/login">Login</a>
+                    </li>
+                </ul>
                 
-                <form class="container-fluid w-75" id="search_bar">
-                    <div class="input-group">
-                    <span class="input-group-text" id="basic-addon1">Search</span>
-                    <input type="text" class="form-control" placeholder="Insert a title or a tag to search between photos" aria-label="Search" aria-describedby="basic-addon1">
-                    </div>
-                </form>
             </div>
         </div>
     </nav>
