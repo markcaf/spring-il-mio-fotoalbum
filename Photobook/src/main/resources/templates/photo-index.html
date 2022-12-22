@@ -16,8 +16,15 @@
 			
 			<div class="col">
 				
-				<div class="row">
-					<div class="col text-end my-2">
+				<div class="row">					
+					<div class="col-9 my-2">						
+						<form class="d-flex">
+					      <input class="form-control me-2" type="text" placeholder="Search a photo by enter the title" aria-label="Search" name="query" th:value="${query}">
+					      <button class="btn btn-outline-success" type="submit">Search</button>
+					    </form>
+					</div>
+					
+					<div class="col-3 text-end my-2">
 						<a href="/admin/photo/create" class="btn btn-primary text-right">+ Add new photo</a>
 					</div>
 				</div>
